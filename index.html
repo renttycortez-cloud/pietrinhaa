@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Pie 🤍</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-image: url('04AM.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #f5f5f5;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(14px);
+      z-index: -1;
+    }
+
+    section {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(22px) saturate(180%);
+      max-width: 520px;
+      width: 100%;
+      padding: 45px 35px;
+      border-radius: 32px;
+      border: 1px solid rgba(255,255,255,0.35);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.45);
+      text-align: center;
+      animation: fadeUp 1.6s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.3em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      font-weight: 400;
+      opacity: 0.8;
+      margin-bottom: 25px;
+    }
+
+    p {
+      font-size: 1.08em;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #ff6b9d;
+    }
+
+    button {
+      margin-top: 10px;
+      background: linear-gradient(135deg, #ff7aa2, #ff4f87);
+      color: #fff;
+      border: none;
+      padding: 15px 38px;
+      border-radius: 50px;
+      font-size: 1em;
+      cursor: pointer;
+      box-shadow: 0 18px 40px rgba(255,79,135,0.45);
+      transition: .3s;
+    }
+
+    button:hover {
+      transform: translateY(-4px);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .galeria {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .galeria img {
+      width: 95px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 18px;
+      opacity: 0.9;
+      transition: .3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+
+    .linha-tempo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .linha-tempo div {
+      width: 120px;
+      height: 2px;
+      background: rgba(255,255,255,0.6);
+    }
+
+    .heart {
+      position: fixed;
+      font-size: 22px;
+      color: #ff5c8a;
+      animation: float 8s linear infinite;
+      pointer-events: none;
+    }
+
+    .final {
+      font-size: 1.3em;
+      font-weight: 600;
+      margin-top: 25px;
+    }
+
+    .assinatura {
+      margin-top: 30px;
+      font-size: .95em;
+      opacity: .75;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      from { transform: translateY(110vh); opacity: 1; }
+      to { transform: translateY(-10vh); opacity: 0; }
+    }
+
+ /* ===== VIBE MATUÊ (COM IMAGEM) ===== */
+.matue {
+  background-image:
+    linear-gradient(
+      rgba(40, 0, 70, 0.75),
+      rgba(15, 0, 35, 0.9)
+    ),
+    url('matuebg.jpeg');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.matue .card {
+  background: rgba(130, 60, 200, 0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(200, 140, 255, 0.4);
+  box-shadow: 0 0 70px rgba(170, 80, 255, 0.45);
+}
+
+.matue .highlight {
+  color: #d0a2ff;
+}
+
+.matue button {
+  background: linear-gradient(135deg, #b26cff, #7c3aed);
+  box-shadow: 0 18px 45px rgba(180, 100, 255, 0.5);
+}
+
+.matue .galeria img {
+  box-shadow: 0 12px 30px rgba(180, 110, 255, 0.4);
+}
+
+  /* ===== VIBE YUNK VINO (VERDE) ===== */
+.yunk {
+  background-image:
+    linear-gradient(
+      rgba(0, 60, 30, 0.7),
+      rgba(0, 20, 10, 0.85)
+    ),
+    url('yunkbg.jpeg');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.yunk .card {
+  background: rgba(50, 150, 70, 0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(100, 255, 120, 0.4);
+  box-shadow: 0 0 70px rgba(80, 220, 100, 0.45);
+}
+
+.yunk .highlight {
+  color: #a0ff9d;
+}
+
+.yunk button {
+  background: linear-gradient(135deg, #55ff88, #00cc44);
+  box-shadow: 0 18px 45px rgba(80, 220, 100, 0.45);
+}
+
+.yunk .galeria img {
+  box-shadow: 0 12px 30px rgba(80, 220, 100, 0.35);
+}
+
+/* ===== VIBE FOTOS (AZULADA) ===== */
+.fotos {
+  background-image:
+    linear-gradient(
+      rgba(0, 40, 80, 0.6),
+      rgba(0, 10, 30, 0.85)
+    ),
+    url('nosbg.jpeg');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.fotos .card {
+  background: rgba(70, 120, 200, 0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(120, 180, 255, 0.4);
+  box-shadow: 0 0 70px rgba(80, 150, 255, 0.45);
+}
+
+.fotos .highlight {
+  color: #80d0ff;
+}
+
+.fotos button {
+  background: linear-gradient(135deg, #5ab6ff, #1a78ff);
+  box-shadow: 0 18px 45px rgba(80, 150, 255, 0.45);
+}
+
+.fotos .galeria img {
+  box-shadow: 0 12px 30px rgba(80, 150, 255, 0.35);
+}
+/* ===== VIBE ANIVERSÁRIO (ROSADA) ===== */
+.aniversario {
+  background-image:
+    linear-gradient(
+      rgba(255, 180, 200, 0.7),
+      rgba(200, 100, 150, 0.85)
+    ),
+    url('text.jpeg');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.aniversario .card {
+  background: rgba(255, 150, 180, 0.25);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 200, 220, 0.4);
+  box-shadow: 0 0 70px rgba(255, 120, 180, 0.45);
+  color: #ffffff; /* ✅ texto branco */
+}
+
+.aniversario .highlight {
+  color: #ffffff; /* destaca também em branco */
+}
+
+.aniversario button {
+  background: linear-gradient(135deg, #ff85c1, #ff4aa1);
+  box-shadow: 0 18px 45px rgba(255, 120, 180, 0.45);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<section>
+  <div class="card">
+    <h1>Hoje é sobre você, Pie 🤍</h1>
+    <h2>e tudo o que você representa</h2>
+    <p>
+      Algumas pessoas passam.<br>
+      Outras ficam.<br><br>
+      E você virou casa.
+    </p>
+    <button onclick="next(1)">Começar ✨</button>
+  </div>
+</section>
+
+<!-- IRMÃ -->
+<section id="s1" class="hidden">
+  <div class="card">
+    <p>Você nunca foi só uma amiga.</p>
+    <p>
+      Foi abrigo nos dias difíceis,<br>
+      presença quando tudo pesava,<br>
+      e calma quando eu precisava respirar.
+    </p>
+    <p class="highlight">
+      Uma irmã escolhida.
+    </p>
+    <button onclick="next(2)">Continuar 🤍</button>
+  </div>
+</section>
+
+<!-- FOTOS -->
+<section id="s2" class="hidden fotos">
+  <div class="card">
+    <p>A gente não tem tantas fotos juntos.</p>
+    <p>
+      Mas algumas histórias não cabem em câmera.
+    </p>
+    <p class="highlight">
+      A nossa é uma delas.
+    </p>
+
+    <div class="galeria">
+      <img src="fotos/pie1.jpeg">
+      <img src="fotos/pie2.jpeg">
+      <img src="fotos/pie3.jpeg">
+      <img src="fotos/pie4.jpeg">
+    </div>
+
+    <button onclick="next(3)">Mais um pouco 🌸</button>
+  </div>
+</section>
+
+
+<!-- MATUÊ -->
+<section id="s3" class="hidden matue">
+  <div class="card">
+    <p>Eu não escolhi gostar do Matuê.</p>
+    <p>Foi você.</p>
+
+    <p>
+      Toda vez que escuto uma música dele,<br>
+      eu lembro de você.<br>
+      Do começo.<br>
+      Do carinho.
+    </p>
+
+    <p class="highlight">
+      Você virou memória em forma de som.
+    </p>
+
+    <div class="galeria">
+      <img src="fotos-matue/matue1.jpeg">
+      <img src="fotos-matue/matue2.jpeg">
+      <img src="fotos-matue/matue3.jpeg">
+    </div>
+
+    <button onclick="next(4)">Continuar 🎧</button>
+  </div>
+</section>
+
+<!-- YUNK VINO -->
+<section id="s4" class="hidden yunk">
+  <div class="card">
+    <p>Nossas conversas nas madrugadas eram iguais às músicas dele,</p>
+    <p>longas, com uma vibe surreal, e quase nunca entendíamos direito.</p>
+    <p class="highlight">
+      Uma trilha verde de lembranças.
+    </p>
+
+    <div class="galeria">
+      <img src="yunk-fotos/yunk1.jpeg">
+      <img src="yunk-fotos/yunk2.jpeg">
+      <img src="yunk-fotos/yunk3.jpeg">
+    </div>
+
+    <button onclick="next(5)">Continuar 🌿</button>
+  </div>
+</section>
+
+<!-- TEMPO -->
+<section id="s5" class="hidden">
+  <div class="card">
+    <p>A gente se fala desde</p>
+    <p class="highlight">04 de abril de 2025</p>
+
+    <div class="linha-tempo">
+      <span>04/04</span>
+      <div></div>
+      <span>27/12</span>
+    </div>
+
+    <p class="highlight">27 de dezembro</p>
+
+    <p>
+      Não é sobre tempo.<br>
+      É sobre ter ficado.
+    </p>
+    <button onclick="next(6)">Final 🤍</button>
+  </div>
+</section>
+<!-- ANIVERSÁRIO -->
+<section id="s6" class="hidden aniversario">
+  <div class="card">
+    <p>Você sabe que eu amo escrever textinhos, rs 🤍</p>
+    <p> Hoje é o seu dia, Pie!</p>
+    <p class="highlight"> Um dia que merece ser celebrado do jeito mais bonito possível, porque você é alguém especial de verdade. Que esse novo ano de vida venha com motivos pra sorrir, com leveza, conquistas e tudo aquilo que faça seu coração ficar em paz. Você merece coisas boas, momentos felizes e pessoas que te valorizem do jeito que você valoriza quem está ao seu redor. Não dá pra falar do seu aniversário sem dizer o quanto você é importante. Sua presença faz diferença, seu jeito marca, e quem tem você por perto sabe o privilégio que é. Você ilumina os dias de quem convive com você, muitas vezes sem nem perceber. Que você nunca esqueça o quanto é querida, o quanto é forte e o quanto ainda tem pra viver.
+Feliz aniversário, Pie. Que a sua vida seja tão linda quanto o coração que você tem. 🤍
+      
+    </p>
+
+    <button onclick="next(7)">Final 🤍</button>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section id="s7" class="hidden">
+  <div class="card">
+    <p>
+      Se hoje eu sigo a vida com mais calma,<br>
+      é porque sei que não caminho sozinho.
+    </p>
+    <p class="final">Feliz vida, Pie. 🤍</p>
+    <div class="assinatura">
+      — Seu irmãozinho, Renatinho 🤍
+    </div>
+  </div>
+</section>
+
+<script>
+  function next(n) {
+    document.getElementById('s' + (n-1))?.classList.add('hidden');
+    document.getElementById('s' + n).classList.remove('hidden');
+    window.scrollTo({ top: window.innerHeight * n, behavior: 'smooth' });
+  }
+
+  function criarCoracao() {
+    const h = document.createElement('div');
+    h.className = 'heart';
+    h.innerHTML = '🤍';
+    h.style.left = Math.random() * 100 + 'vw';
+    h.style.animationDuration = (Math.random() * 4 + 6) + 's';
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 9000);
+  }
+
+  setInterval(criarCoracao, 600);
+</script>
+
+</body>
+</html>
